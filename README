@@ -1,0 +1,23 @@
+This is a fairly simple Python script I made to count the most used words in books, your writings, essays et cetera. 
+
+SAMPLE INPUT: >python ParsertoFile.py (path of your source text file)
+SAMPLE OUTPUT:
+I fed it the Book of Revelations, KJV. Here are some words with the highest frequency of occurence:
+I : 167 
+God : 94
+seven : 54
+beast : 42
+Wow, the Revelations is really metal!
+
+
+
+HOWTO: 
+1. Run from terminal/cmd, 'cd' to the directory where you have the script downloaded and save the contents of the source file to a text file or in any other format openable by a text editor. 
+
+2. The script currently runs from command line, but feel free to change it around so it runs straight from whatever you use to run Python. 
+
+IF BEING USED AS MODULE: 
+Make sure 'sys' and 're' are imported. 
+
+IGNORING WORDS:
+To ignore words in the word count, simply open up the file, and add the word as a string to the 'ignore' tuple.
