@@ -1,6 +1,6 @@
 This is a fairly simple Python script I made to count the most used words in books, your writings, essays et cetera. 
 
-SAMPLE INPUT: >python ParsertoFile.py (path of your source text file)
+SAMPLE INPUT: >python ParsertoFile.py (path of your source text file) (enter the top x words used you'd like to view)
 SAMPLE OUTPUT:
 I fed it the Book of Revelations, KJV. Here are some words with the highest frequency of occurence:
 I : 167 
@@ -21,3 +21,5 @@ Make sure 'sys' and 're' are imported.
 
 IGNORING WORDS:
 To ignore words in the word count, simply open up the file, and add the word as a string to the 'ignore' tuple.
+
+UPDATE: Can now parse through books incredibly fast. I tried to pass Ulysees through it, it slowed down my PC and took about one to two minutes. This does it almost instantly. Only, now make sure to import re and 'from collections import *'. Using collections for high volume files is a massive improvement.
