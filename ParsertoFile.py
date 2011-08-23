@@ -2,50 +2,38 @@
 
 Created by Andrew Louis
 
-Uploaded to GitHub on 23rd August, 2011
+Uploaded to GitHub on 23rd August, 2011, v 2.0 @ 8:00 EST
 """
-#Sample Input: aggregator('/home/andrew/Documents/PythonParser/Aggregator/source.txt')
+import re,sys
+from collections import *
 
-import re,operator,sys
-
-def aggregator(texty):
+def Parser(textfile,top_x):
     
-    filenom = open(texty,'r')
-    text = filenom.read()    
-    list_block = []
-    finalsort = []
+    FileWords = re.findall ('\w+',open(textfile).read().lower())
+    FileWordsC = Counter(FileWords)
 
-    #Creating punctuation-less version of text.
-    punct = re.compile (r'([.?;,!"\\//])')
+    ignore = ['is','if','a','it','the','an','in','of','to','and','that','be',
+              'his','he','her','on','not','by','s','ch','are','this','as','for',
+              'was','with','which','or','for','from','i','you','at','when','have',
+              'but','may','they','their','be','who','your','says','said','all',
+              'him','1','2','3','4','5','6','7','8','9','t','o','-','_']
 
+    for word in FileWords:
+        if word in ignore:
+            del FileWordsC[word]
+
+
+    sillyfile = open(textfile+".Parsed",'w')
+    sillystring = FileWordsC.most_common(top_x)
     
-    text = punct.sub("",text) 
-    #Splitting into the list and sorting by alphabetical
-    text = text.split()
-    for word in text:
-        if not word in list_block:
-            finalsort.insert(0,(word,text.count(word)))
-            list_block.insert(0,word)
-    list_block = [] #For contingencies
-    #Sorting by position [1] in the list
-    finalsort = sorted(finalsort,key=operator.itemgetter(1))
-    #Reversing and printing because it appears in the opposite direction.
-    finalsort.reverse()
-    
-
-    ignore = ('and','in','of','the','is','at','he','his','her',
-              'And','to','that','a','for','with','was','it','him')
-
-    
-    outputfile = open(texty+".wordcount.txt",'w')
-    for tuplething in finalsort:
-        if tuplething[1]== 1: continue
-        elif tuplething[0] in ignore: continue
-        else:
-            sillystring = (str("\t\t\t\t%s : %s\n\n"%(tuplething[0],tuplething[1])))
-            outputfile.write(sillystring)
-    outputfile.close()
+    for word,frequency in sillystring:
+        sillyfile.write(str("\n%15s : %s" % (word,frequency)))
+    sillyfile.close()
 
 if __name__ == "__main__":
-    aggregator (sys.argv[1])
+    directory = sys.argv[1]
+    arb = sys.argv[2]
+    topwhaaat = int(arb)
+
+    Parser(directory,topwhaaat)
     
