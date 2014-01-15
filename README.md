@@ -34,4 +34,4 @@ Sample Usage Case
 	seven : 54
 	beast : 42
 
-Wow, the Revelations is really metal!
+	
