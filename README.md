@@ -1,7 +1,15 @@
 Python Word Parser
 ==================
 
-***Function:*** Python script to count the most used words in books, your writings, essays etc. fed in the format of a text file. 
+***Function*** Python script to count the most used words in books, your writings, essays etc. fed in the format of a text file. 
+
+**Inspiration**
+---
+[Prof. Pennebaker at the University of Texas does research into how your usage of pronouns in your emails varies depending on how you 
+perceive the recipient.](http://jezebel.com/5906235/what-your-pronouns-say-about-you-and-power) This tool was built to help you do your own
+analysis on your emails using Pennebaker's conclusions. 
+
+Note: I apologize for the amateur-ish coding style - this was one of my first ever coding projects. Feel free to fork and improve. 
 
 Usage
 -----
